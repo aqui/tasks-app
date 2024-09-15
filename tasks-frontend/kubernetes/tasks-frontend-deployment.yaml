@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tasks-frontend
+  namespace: tasks-app
+spec:
+  selector:
+    matchLabels:
+      app: tasks-frontend
+  template:
+    metadata:
+      labels:
+        app: tasks-frontend
+    spec:
+      containers:
+      - name: tasks-frontend
+        image: akifbatur/tasks-frontend:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
